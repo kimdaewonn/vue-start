@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top: 60px;">
     <h5>{{블로그글[0].title}}</h5>
     <h5>{{블로그글[0].date}}</h5>
   </div>

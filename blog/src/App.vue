@@ -41,18 +41,21 @@
   </div>
 </nav>
 
-    <div class="container mgt60">
-        <h5>프론트 개발자 블로그임</h5>
-        <p>- Vue로 만들었음.</p>
-    </div>
+  <div class="mgt60">
+    <router-link to="/" style="margin-right: 10px;">홈</router-link>
+    <router-link to="/list" style="margin-right: 10px;">라스트페이지</router-link>
+    <router-link to="/detail" style="margin-right: 10px;">상세페이지</router-link>
+  </div>
+    <router-view :블로그글="블로그글"></router-view>
 
-    <List :블로그글="블로그글"/>
+    <!-- <List :블로그글="블로그글"/> -->
 
 </template>
 
 <script>
-import List from './components/List.vue';
 import blog from './assets/blog.js';
+// import List from './components/List.vue';
+
 export default {
     name: "App",
     data(){
@@ -61,7 +64,6 @@ export default {
       }
     },
     components: {
-      List : List,
     },
 };
 </script>
