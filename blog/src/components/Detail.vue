@@ -1,13 +1,21 @@
 <template>
- <h5>상세페이지임</h5>
- <p>상세페이라는것은?</p>
+ 
+  <div>
+    <h4>상세페이지임</h4>
+    <h5>{{블로그글[ $route.params.id].title}}</h5>
+    <p>{{블로그글[$route.params.id].content}}</p>
+  </div>
 </template>
 
 <script>
 export default {
+  props : {
+    블로그글 : Array,
+  }
 
 }
 </script>
 
 <style>
+
 </style>
