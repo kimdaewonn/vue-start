@@ -1,7 +1,7 @@
 <template>
 <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Blog</a>
+    <a class="navbar-brand" @click="$router.push('/')" href="#">Blog</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -42,6 +42,7 @@
 </nav>
 
   <div class="mgt60">
+    <span  @click="$router.go(-1)" style="margin-right: 10px; color: red; cursor: pointer; text-decoration: underline; ">뒤로가기</span>
     <router-link to="/" style="margin-right: 10px;">홈</router-link>
     <router-link to="/list" style="margin-right: 10px;">라스트페이지</router-link>
     <router-link to="/detail" style="margin-right: 10px;">상세페이지</router-link>
