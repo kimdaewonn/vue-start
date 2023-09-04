@@ -1,21 +1,21 @@
 <template>
-  <div class="post" v-for="(a,i) in instadata" :key="a">
+  <div class="post">
     <div class="post-header">
       <div class="profile"></div>
-      <span class="profile-name">{{instadata[i].name}}</span>
+      <span class="profile-name">{{instadata.name}}</span>
     </div>
-    <div class="post-body"></div>
+    <div class="post-body" :style="{backgroundImg : `(${instadata.postImage})`}"></div>
     <div class="post-content">
-      <p>{{instadata[i].likes}}</p>
-      <p><strong>{{instadata[i].filter}}</strong> {{instadata[i].content}}</p>
-      <p class="date">{{instadata[i].date}}</p>
+      <p>{{instadata.likes}}</p>
+      <p><strong>{{instadata.filter}}</strong> {{instadata.content}}</p>
+      <p class="date">{{instadata.date}}</p>
     </div>
   </div> 
 </template>
 <script>
 export default {
   props: {
-    instadata : Array,
+    instadata : Object,
   },
 
 }

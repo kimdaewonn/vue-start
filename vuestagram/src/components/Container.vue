@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <Post :instadata="instadata"/>
-    <Post :instadata="instadata"/>
-    <Post :instadata="instadata"/>
+  <div v-for="(a,i) in instadata" :key="a"> 
+    <Post :instadata="instadata[i]"/>
   </div>
 </template>
 
