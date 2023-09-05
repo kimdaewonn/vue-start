@@ -10,6 +10,7 @@
   </div>
 
   <Container :instadata="instadata" />
+  <button class="more" @click="more">더보기</button>
 
   <div class="footer">
     <ul class="footer-button-plus">
@@ -22,17 +23,28 @@
 <script>
 import Container from './components/Container.vue';
 import instadata from './assets/instadata.js';
-
+import axios from 'axios';
 
 export default {
   name: 'App',
   data(){
     return {
       instadata : instadata,
+      더보기 : 0,
     }
   },
   components: {
     Container,
+  },
+  methods: {
+    more(){
+          axios.get(`https://codingapple1.github.io/vue/more${this.더보기}.json`).then((result)=>{
+            this.instadata.push(result.data)
+            this.더보기++
+
+          })
+
+    }
   }
 }
 </script>
