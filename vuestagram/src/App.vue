@@ -9,7 +9,7 @@
     <img src="./assets/logo.png" class="logo" />
   </div>
 
-  <Container :instadata="instadata" />
+  <Container :instadata="instadata" :step="step"/>
   <button class="more" @click="more">더보기</button>
 
   <div class="footer">
@@ -18,6 +18,7 @@
       <label for="file" class="input-plus">+</label>
     </ul>
  </div>
+
 </template>
 
 <script>
@@ -31,6 +32,7 @@ export default {
     return {
       instadata : instadata,
       더보기 : 0,
+      step: 0,
     }
   },
   components: {
