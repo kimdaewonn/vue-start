@@ -9,12 +9,12 @@
     <img src="./assets/logo.png" class="logo" />
   </div>
 
-  <Container :instadata="instadata" :step="step"/>
+  <Container :instadata="instadata" :step="step" :이미지="이미지"/>
   <button class="more" @click="more">더보기</button>
 
   <div class="footer">
     <ul class="footer-button-plus">
-      <input type="file" id="file" class="inputfile" />
+      <input @change="upload"  type="file" id="file" class="inputfile" />
       <label for="file" class="input-plus">+</label>
     </ul>
  </div>
@@ -33,6 +33,7 @@ export default {
       instadata : instadata,
       더보기 : 0,
       step: 0,
+      이미지: '',
     }
   },
   components: {
@@ -46,6 +47,17 @@ export default {
 
           })
 
+    },
+    upload(e){
+      let 파일 = e.target.files
+      // console.log(파일[0]);
+      let url = URL.createObjectURL(파일[0]);
+      // console.log(url);
+      this.이미지 = url;
+      
+      this.step++;
+      
+      
     }
   }
 }

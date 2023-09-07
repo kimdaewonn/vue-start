@@ -1,15 +1,12 @@
 <template>
   <div> 
-    <button @click="step == 0">0</button>
-    <button @click="step == 1">1</button>
-    <button @click="step == 2">2</button>
     <div v-if="step == 0">
       <Post :instadata="instadata[i]" v-for="(a,i) in instadata" :key="a"/>
     </div>
 
       <!-- 필터선택페이지 -->
     <div v-if="step == 1">
-      <div class="upload-image"></div>
+      <div class="upload-image" :style="`background-image:url(${이미지})`"></div>
       <div class="filters">
         <div class="filter-1"></div>
         <div class="filter-1"></div>
@@ -38,6 +35,7 @@ export default {
 props: {
   instadata: Array,
   step:Number,
+  이미지:String,
   
 },
 
