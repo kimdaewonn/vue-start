@@ -21,7 +21,7 @@
     <div v-if="step == 2">
       <div class="upload-image" :style="`background-image:url(${이미지})`"></div>
       <div class="write">
-        <textarea class="write-box">write!</textarea>
+        <textarea @input="write" class="write-box">write!</textarea>
       </div>
     </div>
 
@@ -41,7 +41,12 @@ props: {
 
 components: {
   Post,
-}
+},
+methods: {
+  write(e){
+    this.$emit('write',e.target.value)
+  }
+},
 
 }
 </script>

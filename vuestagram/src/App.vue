@@ -10,7 +10,7 @@
     <img src="./assets/logo.png" class="logo" />
   </div>
 
-  <Container :instadata="instadata" :step="step" :이미지="이미지"/>
+  <Container :instadata="instadata" :step="step" :이미지="이미지" @write="작성한글 = $event"/>
   <button class="more" @click="more">더보기</button>
 
   <div class="footer">
@@ -35,6 +35,7 @@ export default {
       더보기 : 0,
       step: 0,
       이미지: '',
+      작성한글: '',
     }
   },
   components: {
@@ -57,7 +58,7 @@ export default {
         likes: 36,
         date: "May 15",
         liked: false,
-        content: "오늘 무엇을 했냐면요 아무것도 안했어요 ?",
+        content: this.작성한글,
         filter: "perpetua"
       }
       this.instadata.unshift(내게시물)
