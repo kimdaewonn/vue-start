@@ -6,9 +6,7 @@
 <script>
 export default {
   name: 'filterbox',
-  data(){
- 
-  },
+
 
 
   props: {
