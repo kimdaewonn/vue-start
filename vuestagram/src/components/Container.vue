@@ -6,19 +6,18 @@
 
       <!-- 필터선택페이지 -->
     <div v-if="step == 1">
-      <div class="upload-image" :style="`background-image:url(${이미지})`"></div>
+      <div :class="선택한필터"  class="upload-image" :style="`background-image:url(${이미지})`"></div>
       <div class="filters">
         <FilterBox :필터="필터" :이미지="이미지" v-for="필터 in 필터들" :key="필터" >
           <span>{{필터}}</span>
         </FilterBox>
       </div>
-      <button @click="dd">확인</button>
     </div>
 
 
     <!-- 글작성페이지 -->
     <div v-if="step == 2">
-      <div class="upload-image" :style="`background-image:url(${이미지})`"></div>
+      <div :class="선택한필터" class="upload-image" :style="`background-image:url(${이미지})`"></div>
       <div class="write">
         <textarea @input="write" class="write-box">write!</textarea>
       </div>
@@ -37,7 +36,14 @@ data(){
     필터들 :[ "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson", 
     "inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua", 
     "reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"],
+    선택한필터 : '',
   }
+},
+mounted(){
+  this.emitter.on('filterClick',(a)=>{
+    this.선택한필터 = a
+    
+  });
 },
 props: {
   instadata: Array,
@@ -54,9 +60,7 @@ methods: {
   write(e){
     this.$emit('write',e.target.value)
   },
-  dd(){
-    console.log(this.필터들);
-  }
+
 },
 
 }

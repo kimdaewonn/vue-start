@@ -4,7 +4,7 @@
       <div class="profile"></div>
       <span class="profile-name">{{instadata.name}}</span>
     </div>
-    <div class="post-body" :style="{backgroundImg : `(${instadata.postImage})`}"></div>
+    <div :class="instadata.filter" class="post-body" :style="{backgroundImg : `(${instadata.postImage})`}"></div>
     <div class="post-content">
       <p>{{instadata.likes}}</p>
       <p><strong>{{instadata.filter}}</strong> {{instadata.content}}</p>
